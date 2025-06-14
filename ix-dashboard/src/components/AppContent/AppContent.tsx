@@ -1,13 +1,12 @@
-import { IxContent, IxContentHeader } from "@siemens/ix-react";
+import DashboardContent from "../DashboardContent/DashboardContent";
+import HomeContent from "../HomeContent/HomeContent";
 
-function AppContent() {
+function AppContent(props: { selectedPage: string }) {
   return (
-    <IxContent>
-      <IxContentHeader
-        slot="header"
-        headerTitle="My Content Page"
-      ></IxContentHeader>
-    </IxContent>
+    <>
+      {props.selectedPage === "Home" && <HomeContent />}
+      {props.selectedPage === "Dashboard" && <DashboardContent />}
+    </>
   );
 }
 
