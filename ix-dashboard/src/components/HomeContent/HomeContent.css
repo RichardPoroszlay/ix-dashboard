@@ -1,0 +1,32 @@
+#gridWrapper {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+}
+
+#leftGrid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+
+#rightGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+
+.rightGridItem {
+  flex: 1 1 0;
+  display: flex;
+}
+.rightGridItem > * {
+  width: 100%;
+  height: 100%;
+}

@@ -1,14 +1,14 @@
-import { FlipTileState } from "@siemens/ix";
-import { iconBulb, iconInfo, iconRocket } from "@siemens/ix-icons/icons";
 import {
-  IxCardList,
+  IxCard,
+  IxCardContent,
   IxContent,
   IxContentHeader,
-  IxFlipTile,
-  IxFlipTileContent,
   IxIcon,
-  IxPushCard,
+  IxTypography,
 } from "@siemens/ix-react";
+
+import "./HomeContent.css";
+import { cardData } from "./cardData";
 
 function HomeContent() {
   return (
@@ -17,66 +17,68 @@ function HomeContent() {
         slot="header"
         headerTitle="Hi there, John Doe"
       ></IxContentHeader>
-      <IxCardList label="Flow Layout" showAllCount={12} listStyle={"scroll"}>
-        <IxPushCard
-          icon={iconRocket}
-          notification="3"
-          heading="Heading content"
-          subheading="Subheading"
-          variant="filled"
-        ></IxPushCard>
-        <IxPushCard
-          icon={iconBulb}
-          notification="1"
-          heading="Heading content"
-          subheading="Subheading"
-          variant="warning"
-        ></IxPushCard>
-        <IxPushCard
-          icon={iconRocket}
-          notification="3"
-          heading="Heading content"
-          subheading="Subheading"
-          variant="filled"
-        ></IxPushCard>
-        <IxPushCard
-          icon={iconRocket}
-          notification="3"
-          heading="Heading content"
-          subheading="Subheading"
-          variant="filled"
-        ></IxPushCard>
-        <IxPushCard
-          icon={iconRocket}
-          notification="3"
-          heading="Heading content"
-          subheading="Subheading"
-          variant="filled"
-        ></IxPushCard>
-      </IxCardList>
-      <div>
-        <IxFlipTile state={FlipTileState.Primary}>
-          <div slot="header">Flip header</div>
-          <div slot="footer">
-            <div>Predicted maintenance date</div>
-            <div className="footer-date">
-              <IxIcon name={iconInfo} size="16"></IxIcon>2021-06-22
-            </div>
+      <div id="gridWrapper">
+        <div id="leftGrid">
+          {cardData.map((card, idx) => (
+            <IxCard
+              variant={card.variant}
+              style={{ width: "100%", height: "100%" }}
+              key={idx}
+            >
+              <IxCardContent>
+                <IxIcon name={card.icon}></IxIcon>
+                <IxTypography bold>{card.title}</IxTypography>
+                <IxTypography>
+                  {card.frameworks.map((fw, i) => (
+                    <span key={i}>
+                      {fw}
+                      <br />
+                    </span>
+                  ))}
+                </IxTypography>
+                <IxTypography format="h1">{card.value}</IxTypography>
+              </IxCardContent>
+            </IxCard>
+          ))}
+        </div>
+        <div id="rightGrid">
+          <div className="rightGridItem">
+            <IxCard style={{ width: "100%", height: "100%" }}>
+              <IxCardContent>
+                <IxTypography format="h2" bold>
+                  Network Traffic Monitor
+                </IxTypography>
+                <IxTypography>
+                  <ul>
+                    <li>Inbound: 520 Mbps</li>
+                    <li>Outbound: 310 Mbps</li>
+                    <li>Active Connections: 87</li>
+                  </ul>
+                </IxTypography>
+              </IxCardContent>
+            </IxCard>
           </div>
-          <IxFlipTileContent> Example 1 </IxFlipTileContent>
-          <IxFlipTileContent> Example 2 </IxFlipTileContent>
-        </IxFlipTile>
-        <IxFlipTile state={FlipTileState.Primary}>
-          <div slot="header">Flip header</div>
-          <div slot="footer">
-            <div>Predicted maintenance date</div>
-            <div className="footer-date">
-              <IxIcon name={iconInfo} size="16"></IxIcon>2021-06-22
-            </div>
+          <div className="rightGridItem">
+            <IxCard style={{ width: "100%", height: "100%" }}>
+              <IxCardContent>
+                <IxTypography format="h2" bold>
+                  Recent Activity
+                </IxTypography>
+                <IxTypography>
+                  <ul>
+                    <li>
+                      User <b>admin</b> logged in
+                    </li>
+                    <li>Backup completed at 14:32</li>
+                    <li>
+                      New device registered: <b>Server-12</b>
+                    </li>
+                  </ul>
+                </IxTypography>
+              </IxCardContent>
+            </IxCard>
           </div>
-          <IxFlipTileContent> Example 1 </IxFlipTileContent>
-          <IxFlipTileContent> Example 2 </IxFlipTileContent>
-        </IxFlipTile>
+        </div>
       </div>
     </IxContent>
   );
