@@ -43,7 +43,7 @@ function HomeContent() {
         </div>
         <div id="rightGrid">
           <div className="rightGridItem">
-            <IxCard style={{ width: "100%", height: "100%" }}>
+            <IxCard>
               <IxCardContent>
                 <IxTypography format="h2" bold>
                   Network Traffic Monitor
@@ -59,7 +59,7 @@ function HomeContent() {
             </IxCard>
           </div>
           <div className="rightGridItem">
-            <IxCard style={{ width: "100%", height: "100%" }}>
+            <IxCard>
               <IxCardContent>
                 <IxTypography format="h2" bold>
                   Recent Activity
