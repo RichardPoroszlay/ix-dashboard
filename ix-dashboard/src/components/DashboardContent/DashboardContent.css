@@ -1,0 +1,24 @@
+#gridWrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+#dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  gap: 12px;
+  height: 80%;
+  width: 100%;
+}
+
+#dashboardGrid > * {
+  height: 100%;
+  width: 100%;
+}
+
+#dashboardTitles {
+  display: flex;
+  justify-content: space-around;
+}

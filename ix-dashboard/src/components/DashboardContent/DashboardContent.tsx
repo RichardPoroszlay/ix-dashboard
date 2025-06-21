@@ -1,21 +1,41 @@
-import { IxContent, IxContentHeader } from "@siemens/ix-react";
+import { IxCard, IxContent, IxContentHeader, IxTile } from "@siemens/ix-react";
+import PieChart from "../Charts/PieChart/PieChart";
+import DonutChart from "../Charts/DonutChart/DonutChart";
+
+import "./DashboardContent.css";
+import BarChart from "../Charts/BarChart/BarChart";
 
 function DashboardContent() {
   return (
     <IxContent>
-      <IxContentHeader
-        slot="header"
-        headerTitle="My Content Page"
-      ></IxContentHeader>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-      sit amet.
+      <IxContentHeader slot="header" headerTitle="Dashboard"></IxContentHeader>
+      <div id="gridWrapper">
+        <div id="dashboardGrid">
+          <IxCard>
+            <BarChart />
+          </IxCard>
+          <IxCard>
+            <PieChart />
+          </IxCard>
+          <IxCard>
+            <DonutChart />
+          </IxCard>
+        </div>
+        <div id="dashboardTitles">
+          <IxTile size="medium">
+            <div slot="header">BarChart</div>
+            <div className="text-l">Top Selling Products</div>
+          </IxTile>
+          <IxTile size="medium">
+            <div slot="header">PieChart</div>
+            <div className="text-l">CO2 emissions</div>
+          </IxTile>
+          <IxTile size="medium">
+            <div slot="header">DonutChart</div>
+            <div className="text-l">Endpoint OS Distribution</div>
+          </IxTile>
+        </div>
+      </div>
     </IxContent>
   );
 }
